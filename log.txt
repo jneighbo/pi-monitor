@@ -1,0 +1,425 @@
+Octets: 3237203326
+Octet change: 1450081
+Util: 0.36252025
+Bucket Index:0
+
+Octets: 3238956425
+Octet change: 1753099
+Util: 0.43827475
+Bucket Index:0
+
+Octets: 3240524213
+Octet change: 1567788
+Util: 0.39194700000000005
+Bucket Index:0
+
+Octets: 3242668216
+Octet change: 2144003
+Util: 0.5360007499999999
+Bucket Index:0
+
+Octets: 3391954038
+Octet change: 149285822
+Util: 37.3214555
+Bucket Index:2
+
+Octets: 3698812068
+Octet change: 306858030
+Util: 76.7145075
+Bucket Index:6
+
+Octets: 4007659919
+Octet change: 308847851
+Util: 77.21196275
+Bucket Index:6
+
+Octets: 20037102
+Octet change: -3987622817
+Util: -996.90570425
+Bucket Index:0
+
+Octets: 105237754
+Octet change: 85200652
+Util: 21.300163
+Bucket Index:1
+
+Octets: 107188511
+Octet change: 1950757
+Util: 0.48768924999999996
+Bucket Index:0
+
+Octets: 109256332
+Octet change: 2067821
+Util: 0.51695525
+Bucket Index:0
+
+Octets: 111064894
+Octet change: 1808562
+Util: 0.4521405
+Bucket Index:0
+
+Octets: 112238802
+Octet change: 1173908
+Util: 0.29347700000000004
+Bucket Index:0
+
+Octets: 114138427
+Octet change: 1899625
+Util: 0.47490625
+Bucket Index:0
+
+Octets: 115506328
+Octet change: 1367901
+Util: 0.34197525
+Bucket Index:0
+
+Octets: 117163911
+Octet change: 1657583
+Util: 0.41439575
+Bucket Index:0
+
+Octets: 118211420
+Octet change: 1047509
+Util: 0.26187725
+Bucket Index:0
+
+Octets: 120038637
+Octet change: 1827217
+Util: 0.45680425
+Bucket Index:0
+
+Octets: 121615382
+Octet change: 1576745
+Util: 0.39418624999999996
+Bucket Index:0
+
+Octets: 123136586
+Octet change: 1521204
+Util: 0.380301
+Bucket Index:0
+
+Octets: 124366708
+Octet change: 1230122
+Util: 0.3075305
+Bucket Index:0
+
+Octets: 125459778
+Octet change: 1093070
+Util: 0.2732675
+Bucket Index:0
+
+Octets: 126484897
+Octet change: 1025119
+Util: 0.25627975000000003
+Bucket Index:0
+
+Octets: 127551016
+Octet change: 1066119
+Util: 0.26652974999999995
+Bucket Index:0
+
+Octets: 128918111
+Octet change: 1367095
+Util: 0.34177375
+Bucket Index:0
+
+Octets: 130147379
+Octet change: 1229268
+Util: 0.307317
+Bucket Index:0
+
+Octets: 131255506
+Octet change: 1108127
+Util: 0.27703175
+Bucket Index:0
+
+Octets: 132453309
+Octet change: 1197803
+Util: 0.29945075
+Bucket Index:0
+
+Octets: 133665157
+Octet change: 1211848
+Util: 0.30296199999999995
+Bucket Index:0
+
+Octets: 134816250
+Octet change: 1151093
+Util: 0.28777325000000004
+Bucket Index:0
+
+Octets: 136018132
+Octet change: 1201882
+Util: 0.3004705
+Bucket Index:0
+
+Octets: 137054204
+Octet change: 1036072
+Util: 0.259018
+Bucket Index:0
+
+Octets: 138050280
+Octet change: 996076
+Util: 0.24901900000000002
+Bucket Index:0
+
+Octets: 139151633
+Octet change: 1101353
+Util: 0.27533825
+Bucket Index:0
+
+Octets: 140382595
+Octet change: 1230962
+Util: 0.30774050000000003
+Bucket Index:0
+
+Octets: 141604617
+Octet change: 1222022
+Util: 0.3055055
+Bucket Index:0
+
+Octets: 142819970
+Octet change: 1215353
+Util: 0.30383825
+Bucket Index:0
+
+Octets: 144115423
+Octet change: 1295453
+Util: 0.32386325
+Bucket Index:0
+
+Octets: 145375939
+Octet change: 1260516
+Util: 0.315129
+Bucket Index:0
+
+Octets: 146946395
+Octet change: 1570456
+Util: 0.39261399999999996
+Bucket Index:0
+
+Octets: 148007160
+Octet change: 1060765
+Util: 0.26519125
+Bucket Index:0
+
+Octets: 148966239
+Octet change: 959079
+Util: 0.23976975
+Bucket Index:0
+
+Octets: 149964164
+Octet change: 997925
+Util: 0.24948125000000002
+Bucket Index:0
+
+Octets: 150975755
+Octet change: 1011591
+Util: 0.25289775000000003
+Bucket Index:0
+
+Octets: 152169829
+Octet change: 1194074
+Util: 0.2985185
+Bucket Index:0
+
+Octets: 153442802
+Octet change: 1272973
+Util: 0.31824325
+Bucket Index:0
+
+Octets: 154817986
+Octet change: 1375184
+Util: 0.343796
+Bucket Index:0
+
+Octets: 156309839
+Octet change: 1491853
+Util: 0.37296324999999997
+Bucket Index:0
+
+Octets: 158264871
+Octet change: 1955032
+Util: 0.48875799999999997
+Bucket Index:0
+
+Octets: 159563836
+Octet change: 1298965
+Util: 0.32474125
+Bucket Index:0
+
+Octets: 161376983
+Octet change: 1813147
+Util: 0.45328675
+Bucket Index:0
+
+Octets: 162649105
+Octet change: 1272122
+Util: 0.3180305
+Bucket Index:0
+
+Octets: 163888776
+Octet change: 1239671
+Util: 0.30991775
+Bucket Index:0
+
+Octets: 164860708
+Octet change: 971932
+Util: 0.242983
+Bucket Index:0
+
+Octets: 166444616
+Octet change: 1583908
+Util: 0.39597699999999997
+Bucket Index:0
+
+Octets: 167886637
+Octet change: 1442021
+Util: 0.36050525
+Bucket Index:0
+
+Octets: 169469312
+Octet change: 1582675
+Util: 0.39566875
+Bucket Index:0
+
+Octets: 171204775
+Octet change: 1735463
+Util: 0.43386575
+Bucket Index:0
+
+Octets: 172283998
+Octet change: 1079223
+Util: 0.26980575
+Bucket Index:0
+
+Octets: 173292867
+Octet change: 1008869
+Util: 0.25221725
+Bucket Index:0
+
+Octets: 174464325
+Octet change: 1171458
+Util: 0.2928645
+Bucket Index:0
+
+Octets: 175974109
+Octet change: 1509784
+Util: 0.377446
+Bucket Index:0
+
+Octets: 177062859
+Octet change: 1088750
+Util: 0.27218749999999997
+Bucket Index:0
+
+Octets: 178219256
+Octet change: 1156397
+Util: 0.28909925
+Bucket Index:0
+
+Octets: 179363231
+Octet change: 1143975
+Util: 0.28599375
+Bucket Index:0
+
+Octets: 180433887
+Octet change: 1070656
+Util: 0.267664
+Bucket Index:0
+
+Octets: 181545565
+Octet change: 1111678
+Util: 0.2779195
+Bucket Index:0
+
+Octets: 183172054
+Octet change: 1626489
+Util: 0.40662225
+Bucket Index:0
+
+Octets: 185110791
+Octet change: 1938737
+Util: 0.48468425000000004
+Bucket Index:0
+
+Octets: 187602433
+Octet change: 2491642
+Util: 0.6229105
+Bucket Index:0
+
+Octets: 190404982
+Octet change: 2802549
+Util: 0.70063725
+Bucket Index:0
+
+Octets: 195338110
+Octet change: 4933128
+Util: 1.233282
+Bucket Index:0
+
+Octets: 197555342
+Octet change: 2217232
+Util: 0.554308
+Bucket Index:0
+
+Octets: 200623408
+Octet change: 3068066
+Util: 0.7670165
+Bucket Index:0
+
+Octets: 203302260
+Octet change: 2678852
+Util: 0.669713
+Bucket Index:0
+
+Octets: 205803794
+Octet change: 2501534
+Util: 0.6253835
+Bucket Index:0
+
+Octets: 209091826
+Octet change: 3288032
+Util: 0.822008
+Bucket Index:0
+
+Octets: 211467256
+Octet change: 2375430
+Util: 0.5938574999999999
+Bucket Index:0
+
+Octets: 214955866
+Octet change: 3488610
+Util: 0.8721525000000001
+Bucket Index:0
+
+Octets: 217673526
+Octet change: 2717660
+Util: 0.679415
+Bucket Index:0
+
+Octets: 219497897
+Octet change: 1824371
+Util: 0.45609275
+Bucket Index:0
+
+Octets: 220525981
+Octet change: 1028084
+Util: 0.257021
+Bucket Index:0
+
+Octets: 221799943
+Octet change: 1273962
+Util: 0.3184905
+Bucket Index:0
+
+Octets: 222933947
+Octet change: 1134004
+Util: 0.283501
+Bucket Index:0
+
+Octets: 224139659
+Octet change: 1205712
+Util: 0.301428
+Bucket Index:0
+
