@@ -3,7 +3,6 @@ import numpy as np
 from easysnmp import Session
 
 def calculate_utilization(sample, sample_rate, max_capacity_bps):
- 
     data_rate_bps = sample / sample_rate  # Data rate per second
     utilization_percentage = (data_rate_bps / max_capacity_bps) * 100
     
