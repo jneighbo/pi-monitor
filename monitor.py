@@ -27,7 +27,10 @@ def update_grid(grid_to_update, bucket_index):
     bucket_string = [1 if i <= bucket_index else 0 for i in range(8)]   
     grid_to_update = np.column_stack((grid_to_update, bucket_string))
     grid_to_update = np.delete(grid_to_update, 0, 1)
+    
     return grid_to_update
+
+#def update_sensehat(matrix_string)
 
 
 def main():
@@ -35,9 +38,11 @@ def main():
     max_value = 100
     num_buckets = 8
 
-
     matrix = np.zeros((8, 8), dtype=int)
     sense = SenseHat()
+    sense.clear()
+    sense.low_light = True
+    
 
     max_capacity_bps = 100000000  # 1 Gbps
     sample_rate = 4
@@ -52,22 +57,24 @@ def main():
         octets = int(octets_pdu.value)
  
         if first_get == True:
-            lastoctets = octets
+            last_octets = octets
             first_get = False
         else:
-            octet_change = octets - lastoctets
-            lastoctets = octets
+            octet_change = octets - last_octets
+            last_octets = octets
             util_percent = calculate_utilization(octet_change, sample_rate, max_capacity_bps)
             bucket_index = scale_to_buckets(util_percent, min_value, max_value, num_buckets)
             matrix = update_grid(matrix, bucket_index)  
+            flipped_matrix = np.fliplr(matrix)
             
             print("Octet change: " + str(octet_change))
             print("Util: " + str(util_percent))
             print("Bucket Index:" + str(bucket_index))
-            print(matrix)
+            print(flipped_matrix)
+
             not_lit = [0, 0, 0]
             lit = [255, 0, 0]
-            grid_string = ','.join(map(str, matrix.flatten()))
+            grid_string = ','.join(map(str, flipped_matrix.flatten()))
             numbers = list(map(int, grid_string.split(',')))
             new_list = [not_lit if num == 0 else lit for num in numbers]
             print(new_list)
