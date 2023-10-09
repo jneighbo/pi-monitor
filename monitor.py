@@ -53,14 +53,13 @@ def main():
     sense.low_light = True
      
     # Create an SNMP session to be used for all our requests
-    session = Session(hostname='192.168.0.3', community='public', version=2)
+    snmp_session = Session(hostname='192.168.0.3', community='public', version=2)
 
     first_get = True
 
     while True:
-        octets_pdu = session.get('.1.3.6.1.2.1.2.2.1.10.3')
-        octets = int(octets_pdu.value)
- 
+        octets = int(snmp_session.get('.1.3.6.1.2.1.2.2.1.10.3').value)
+         
         if first_get == True:
             last_octets = octets
             first_get = False
