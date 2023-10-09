@@ -22,6 +22,15 @@ def scale_to_buckets(number, min_value, max_value, num_buckets):
     return bucket_index
 
 
+def update_grid(grid_to_update, bucket_index):
+
+    bucket_string = [1 if i <= bucket_index else 0 for i in range(8)]   
+    grid_to_update = np.column_stack((grid_to_update, bucket_string))
+    grid_to_update = np.delete(grid_to_update, 0, 1)
+  
+    return grid_to_update
+
+
 def main():
     min_value = 0
     max_value = 100
@@ -49,13 +58,15 @@ def main():
             lastoctets = octets
             util_percent = calculate_utilization(octet_change, sample_rate, max_capacity_bps)
             bucket_index = scale_to_buckets(util_percent, min_value, max_value, num_buckets)
+
+            
             print("Octet change: " + str(octet_change))
             print("Util: " + str(util_percent))
-            print("Bucket Index:" + str(bucket_index) + "\n")
+            print("Bucket Index:" + str(bucket_index))
+            print(matrix)
 
+            matrix = update_grid(matrix, bucket_index)
 
-            
-            
         time.sleep(sample_rate)
 
             
