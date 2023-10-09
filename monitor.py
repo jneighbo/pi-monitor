@@ -1,10 +1,13 @@
-import time
 import numpy as np
+import time
 from sense_hat import SenseHat
 from easysnmp import Session
 
 def calculate_utilization(sample, sample_rate, max_capacity_bps):
-    data_rate_bps = sample / sample_rate  # Data rate per second
+    # Calculate the data rate per second (sample_rate)
+    data_rate_bps = sample / sample_rate  
+
+    # Calculate the utilzation percentage
     utilization_percentage = (data_rate_bps / max_capacity_bps) * 100
     
     return utilization_percentage
@@ -34,19 +37,21 @@ def update_grid(grid_to_update, bucket_index):
 
 
 def main():
-    min_value = 0
-    max_value = 100
-    num_buckets = 8
+    # Initialize important variables
+    min_utilization = 0
+    max_utilization = 100
+    bucket_count = 8              # Size of the display is 8x8
+    max_capacity_bps = 100000000  # 100 Mbps
+    sample_rate = 4               # How often to take a sample from the switch (seconds)
 
+    # Set up the 2d NumPy array to internally represent the SenseHat display 
     matrix = np.zeros((8, 8), dtype=int)
+
+    # Intitalize the SenseHat object, clear it, and set the brightness
     sense = SenseHat()
     sense.clear()
     sense.low_light = True
-    
-
-    max_capacity_bps = 100000000  # 1 Gbps
-    sample_rate = 4
-
+     
     # Create an SNMP session to be used for all our requests
     session = Session(hostname='192.168.0.3', community='public', version=2)
 
@@ -62,8 +67,9 @@ def main():
         else:
             octet_change = octets - last_octets
             last_octets = octets
+
             util_percent = calculate_utilization(octet_change, sample_rate, max_capacity_bps)
-            bucket_index = scale_to_buckets(util_percent, min_value, max_value, num_buckets)
+            bucket_index = scale_to_buckets(util_percent, min_utilization, max_utilization, bucket_count)
             matrix = update_grid(matrix, bucket_index)  
             flipped_matrix = np.fliplr(matrix)
             
@@ -72,14 +78,13 @@ def main():
             print("Bucket Index:" + str(bucket_index))
             print(flipped_matrix)
 
-            not_lit = [0, 0, 0]
-            lit = [255, 0, 0]
-            grid_string = ','.join(map(str, flipped_matrix.flatten()))
-            numbers = list(map(int, grid_string.split(',')))
-            new_list = [not_lit if num == 0 else lit for num in numbers]
-            print(new_list)
-            sense.set_pixels(new_list)
-            #pixel_list = sense.get_pixels()
+            pixel_not_lit = [0, 0, 0]
+            pixel_lit = [255, 0, 0]
+            #grid_string = ','.join(map(str, flipped_matrix.flatten()))
+            #numbers = list(map(int, grid_string.split(',')))
+            senshat_display = [pixel_lit if num == 1 else pixel_not_lit for num in flipped_matrix.flatten()]
+            print(senshat_display)
+            sense.set_pixels(senshat_display)
             
 
         time.sleep(sample_rate)
