@@ -33,8 +33,6 @@ def update_grid(grid_to_update, bucket_index):
     
     return grid_to_update
 
-#def update_sensehat(matrix_string)
-
 
 def main():
     # Initialize important variables
@@ -43,6 +41,8 @@ def main():
     bucket_count = 8              # Size of the display is 8x8
     max_capacity_bps = 100000000  # 100 Mbps
     sample_rate = 4               # How often to take a sample from the switch (seconds)
+    pixel_not_lit = [0, 0, 0]     # RGB value for pixels that aren't lit
+    pixel_lit = [255, 0, 0]       # RGB value for pixels that make up thebg
 
     # Set up the 2d NumPy array to internally represent the SenseHat display 
     matrix = np.zeros((8, 8), dtype=int)
@@ -55,39 +55,37 @@ def main():
     # Create an SNMP session to be used for all our requests
     snmp_session = Session(hostname='192.168.0.3', community='public', version=2)
 
+    # Flag
     first_get = True
 
     while True:
         octets = int(snmp_session.get('.1.3.6.1.2.1.2.2.1.10.3').value)
          
-        if first_get == True:
+        if first_get:
             last_octets = octets
             first_get = False
         else:
             octet_change = octets - last_octets
             last_octets = octets
-
+            
             util_percent = calculate_utilization(octet_change, sample_rate, max_capacity_bps)
             bucket_index = scale_to_buckets(util_percent, min_utilization, max_utilization, bucket_count)
             matrix = update_grid(matrix, bucket_index)  
             flipped_matrix = np.fliplr(matrix)
             
+            
+            print("Octets: " + str(octets))
             print("Octet change: " + str(octet_change))
             print("Util: " + str(util_percent))
-            print("Bucket Index:" + str(bucket_index))
+            print("Bucket Index:" + str(bucket_index) + '\n')
             print(flipped_matrix)
 
-            pixel_not_lit = [0, 0, 0]
-            pixel_lit = [255, 0, 0]
-            #grid_string = ','.join(map(str, flipped_matrix.flatten()))
-            #numbers = list(map(int, grid_string.split(',')))
+
             senshat_display = [pixel_lit if num == 1 else pixel_not_lit for num in flipped_matrix.flatten()]
-            print(senshat_display)
+            #print(senshat_display)
             sense.set_pixels(senshat_display)
             
-
         time.sleep(sample_rate)
-
             
 
 main()
