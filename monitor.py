@@ -8,7 +8,7 @@ def calculate_utilization(sample, sample_rate, max_capacity_bps):
     data_rate_bps = sample / sample_rate  
 
     # Calculate the utilzation percentage
-    utilization_percentage = (data_rate_bps / max_capacity_bps) * 100
+    utilization_percentage = (data_rate_bps / max_capacity_bps) * 100 * 8
     
     return utilization_percentage
 
@@ -39,7 +39,7 @@ def main():
     min_utilization = 0
     max_utilization = 100
     bucket_count = 8              # Size of the display is 8x8
-    max_capacity_bps = 100000000  # 100 Mbps
+    max_capacity_bps = 600000000  # 100 Mbps
     sample_rate = 4               # How often to take a sample from the switch (seconds)
     pixel_not_lit = [0, 0, 0]     # RGB value for pixels that aren't lit
     pixel_lit = [255, 0, 0]       # RGB value for pixels that make up thebg
