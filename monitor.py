@@ -8,7 +8,7 @@ def calculate_utilization(sample, sample_rate, max_capacity_bps):
     data_rate_bps = sample / sample_rate  
 
     # Calculate the utilzation percentage
-    utilization_percentage = (data_rate_bps / max_capacity_bps) * 100 * 8
+    utilization_percentage = (data_rate_bps * 8 / max_capacity_bps) * 100 
     
     return utilization_percentage
 
