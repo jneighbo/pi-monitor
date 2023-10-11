@@ -11,9 +11,9 @@ I hope to add more error checking in future versions
 - You will need a Raspberry PI with the SenseHat Pi Hat
 - You will need to install Python and required modules
 
-`$ pip install pip3 install sense_hat easysnmp numpy`
+`$ pip3 install sense_hat easysnmp numpy`
 
 `$ python monitor.py`
-  
+
 
 Thanks to Kevin Hartle for help with code review and general advice.
