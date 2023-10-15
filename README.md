@@ -22,3 +22,5 @@ You can ignore this error as it doesn't affect the LED grid
 
 
 Thanks to Kevin Hartle for help with code review and general advice.
+
+Test commit/push after machine reinstall(s)
