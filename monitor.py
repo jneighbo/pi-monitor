@@ -55,8 +55,9 @@ def main():
     # Create an SNMP session to be used for all our requests
     snmp_session = Session(hostname='192.168.0.3', community='public', version=2)
 
-    # Flag
+    # Flags
     first_get = True
+    debug = False
 
     while True:
         octets = int(snmp_session.get('.1.3.6.1.2.1.2.2.1.10.3').value)
@@ -73,12 +74,12 @@ def main():
             matrix = update_grid(matrix, bucket_index)  
             flipped_matrix = np.fliplr(matrix)
             
-            
-            print("Octets: " + str(octets))
-            print("Octet change: " + str(octet_change))
-            print("Util: " + str(util_percent))
-            print("Bucket Index:" + str(bucket_index) + '\n')
-            print(flipped_matrix)
+            if debug: 
+                print("Octets: " + str(octets))
+                print("Octet change: " + str(octet_change))
+                print("Util: " + str(util_percent))
+                print("Bucket Index:" + str(bucket_index) + '\n')
+                print(flipped_matrix)
 
 
             senshat_display = [pixel_lit if num == 1 else pixel_not_lit for num in flipped_matrix.flatten()]
