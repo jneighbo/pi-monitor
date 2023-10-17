@@ -87,7 +87,7 @@ def main():
             sense.set_pixels(senshat_display)
             
         time.sleep(sample_rate)
-            
+
 
 main()
     
