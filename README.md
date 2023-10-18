@@ -10,6 +10,8 @@ I hope to add more error checking in future versions
 - You will need a Raspberry PI model B (2 tested, 3 tested,4 should work) with the SenseHat Pi Hat v1 or v2
 - You will need to install Python and required modules
 
+`$ sudo apt-get install libsnmp-dev snmp-mibs-downloader` 
+
 `$ pip3 install sense_hat easysnmp numpy`
 
 `$ python monitor.py`
