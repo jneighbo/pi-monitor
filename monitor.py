@@ -2,6 +2,8 @@ import numpy as np
 import time
 from sense_hat import SenseHat
 from easysnmp import Session
+import configparser
+
 
 def calculate_utilization(sample, sample_rate, max_capacity_bps):
     # Calculate the data rate per second (sample_rate)
@@ -35,17 +37,35 @@ def update_grid(grid_to_update, bucket_index):
 
 
 def main():
+    config = configparser.ConfigParser()
+    config.read('config.ini')
+
     # Initialize important variables
-    min_utilization = 0
-    max_utilization = 100
-    bucket_count = 8              # Size of the display is 8x8
-    max_capacity_bps = 600000000  # 100 Mbps
-    sample_rate = 4               # How often to take a sample from the switch (seconds)
+    min_utilization = int(config['Main']['min_utilization'])
+    max_utilization = int(config['Main']['min_utilization'])
+    
+    # Size of the display is 8x8. Default is 8.
+    bucket_count = int(config['Main']['bucket_count'])
+    
+    # Max expected speed. Set to what speed link your ISP gives you even
+    # if monitoring a gigabit port
+    max_capacity_bps = int(config['Main']['max_capacity_bps'])
+    
+    # How often to take a sample from the switch (seconds)
+    sample_rate = int(config['Main']['sample_rate'])
+
+    # Not sure about these yet             
     pixel_not_lit = [0, 0, 0]     # RGB value for pixels that aren't lit
     pixel_lit = [255, 0, 0]       # RGB value for pixels that make up thebg
 
     # Set up the 2d NumPy array to internally represent the SenseHat display 
     matrix = np.zeros((8, 8), dtype=int)
+
+    # Device IP to query
+    hostname = config['Main']['hostname']
+
+    # SNMP community string to use for queries.
+    community = config['Main']['community']
 
     # Intitalize the SenseHat object, clear it, and set the brightness
     sense = SenseHat()
@@ -53,7 +73,7 @@ def main():
     sense.low_light = True
      
     # Create an SNMP session to be used for all our requests
-    snmp_session = Session(hostname='192.168.0.3', community='public', version=2)
+    snmp_session = Session(hostname=hostname, community=community, version=2)
 
     # Flags
     first_get = True
