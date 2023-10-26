@@ -4,8 +4,6 @@ This is a tiny network monitor that uses the 8x8 LED display on a Raspberry Pi S
 ### About the application
 This application is written in Python and requires the easysnmp and SenseHat modules.
 
-I hope to add more error checking in future versions
-
 ![pi-monitor in use](https://github.com/jneighbo/pi-monitor/assets/33995623/e4bda6a9-0068-4355-80b7-5acfbc920427)
 
 
