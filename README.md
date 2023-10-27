@@ -24,6 +24,7 @@ v1 or the SenseHat generates an error:
 `WARNING:root:Failed to initialise TCS34725 colour sensor. (sensor not present)`
 
 You can ignore this error as it doesn't affect the LED grid
+
 Some TPLink devices support SNMP, but give invalid data.
 
 Thanks to Kevin Hartle for help with code review and general advice.
