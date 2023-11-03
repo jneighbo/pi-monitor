@@ -17,6 +17,9 @@ def calculate_utilization(sample, sample_rate, max_capacity_bps):
 
 def scale_to_buckets(number, min_value, max_value, num_buckets):
     # Calculate the range of values in each bucket
+    print(max_value)
+    print(min_value)
+    print(num_buckets)
     bucket_range = (max_value - min_value) / num_buckets
     
     # Calculate the bucket index for the given number
@@ -35,6 +38,10 @@ def update_grid(grid_to_update, bucket_index):
     
     return grid_to_update
 
+def signal_handler(sig, frame):
+    print('You pressed Ctrl+C!')
+    sys.exit(0)
+
 
 def main():
     config = configparser.ConfigParser()
@@ -42,7 +49,7 @@ def main():
 
     # Initialize important variables
     min_utilization = int(config['Main']['min_utilization'])
-    max_utilization = int(config['Main']['min_utilization'])
+    max_utilization = int(config['Main']['max_utilization'])
     
     # Size of the display is 8x8. Default is 8.
     bucket_count = int(config['Main']['bucket_count'])
@@ -56,7 +63,7 @@ def main():
 
     # Not sure about these yet             
     pixel_not_lit = [0, 0, 0]     # RGB value for pixels that aren't lit
-    pixel_lit = [255, 0, 0]       # RGB value for pixels that make up thebg
+    pixel_lit = [255, 0, 0]       # RGB value for pixels that make up the bg
 
     # Set up the 2d NumPy array to internally represent the SenseHat display 
     matrix = np.zeros((8, 8), dtype=int)
@@ -66,6 +73,9 @@ def main():
 
     # SNMP community string to use for queries.
     community = config['Main']['community']
+
+    port = config['Main']['port_num']
+    full_oid = '.1.3.6.1.2.1.2.2.1.10.' + port
 
     # Intitalize the SenseHat object, clear it, and set the brightness
     sense = SenseHat()
@@ -77,36 +87,54 @@ def main():
 
     # Flags
     first_get = True
-    debug = False
+    debug = True
 
     while True:
-        octets = int(snmp_session.get('.1.3.6.1.2.1.2.2.1.10.3').value)
-         
-        if first_get:
-            last_octets = octets
-            first_get = False
-        else:
-            octet_change = octets - last_octets
-            last_octets = octets
-            
-            util_percent = calculate_utilization(octet_change, sample_rate, max_capacity_bps)
-            bucket_index = scale_to_buckets(util_percent, min_utilization, max_utilization, bucket_count)
-            matrix = update_grid(matrix, bucket_index)  
-            flipped_matrix = np.fliplr(matrix)
-            
+        try: 
+            octets = int(snmp_session.get(full_oid).value)
             if debug: 
                 print("Octets: " + str(octets))
-                print("Octet change: " + str(octet_change))
-                print("Util: " + str(util_percent))
-                print("Bucket Index:" + str(bucket_index) + '\n')
-                print(flipped_matrix)
-
-
-            senshat_display = [pixel_lit if num == 1 else pixel_not_lit for num in flipped_matrix.flatten()]
-            #print(senshat_display)
-            sense.set_pixels(senshat_display)
             
-        time.sleep(sample_rate)
+            if first_get:
+                last_octets = octets
+                first_get = False
+            else:
+                octet_change = octets - last_octets
+                last_octets = octets
+                if debug: 
+                    print("Octets: " + str(octet_change))
+
+                
+                
+                # Calculate the utilization percentage
+                util_percent = calculate_utilization(octet_change, sample_rate, max_capacity_bps)
+                
+                # Take the utilization and scale it for the 8x8 display
+                bucket_index = scale_to_buckets(util_percent, min_utilization, max_utilization, bucket_count)
+                
+                # Update the internal numpy array that holds the state of the matrix
+                matrix = update_grid(matrix, bucket_index)  
+                
+                # Flip the matrix depending on the orientaion of the SenseHat
+                flipped_matrix = np.fliplr(matrix)
+                
+                if debug: 
+                    print("Octets: " + str(octets))
+                    print("Octet change: " + str(octet_change))
+                    print("Util: " + str(util_percent))
+                    print("Bucket Index:" + str(bucket_index) + '\n')
+                    print(flipped_matrix)
+
+
+                senshat_display = [pixel_lit if num == 1 else pixel_not_lit for num in flipped_matrix.flatten()]
+                #print(senshat_display)
+                sense.set_pixels(senshat_display)
+                
+            time.sleep(sample_rate)
+        except KeyboardInterrupt:
+            print("Caught Keyboard Interrupt.")
+            sense.clear()
+            exit()
 
 
 main()
