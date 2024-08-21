@@ -27,6 +27,6 @@ You can ignore this error as it doesn't affect the LED grid
 
 Some TPLink devices support SNMP, but give invalid data.
 
-Thanks to Kevin Hartle for help with code review and general advice.
+Thanks to Kevin Hartle his support.
 
 
