@@ -20,12 +20,10 @@ This application is written in Python and requires the easysnmp and SenseHat mod
 `$ python monitor.py`
 
 ### Known issues
-v1 or the SenseHat generates an error:
-`WARNING:root:Failed to initialise TCS34725 colour sensor. (sensor not present)`
-
-You can ignore this error as it doesn't affect the LED grid
-
-Some TPLink devices support SNMP, but give invalid data.
+- v1 or the SenseHat generates an error:
+`WARNING:root:Failed to initialise TCS34725 colour sensor. (sensor not present)` <br />
+  You can ignore this error as it doesn't affect the LED grid
+- Some TPLink devices support SNMP, but give invalid data.
 
 
 
