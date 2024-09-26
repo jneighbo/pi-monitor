@@ -22,7 +22,7 @@ You will need to install Python and required modules
 
 
 Known issues
-v1 or the SenseHat generates an error: WARNING:root:Failed to initialise TCS34725 colour sensor. (sensor not present)
+v1 of the SenseHat generates an error: WARNING:root:Failed to initialise TCS34725 colour sensor. (sensor not present)
 
 You can ignore this error as it doesn't affect the LED grid
 
