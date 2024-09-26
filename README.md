@@ -2,7 +2,7 @@
 
 ### Project Description
 
-`pi-monitor` is a lightweight network monitor that utilizes the 8x8 LED display on a Raspberry Pi Sense HAT to visualize network activity. The application is designed for Raspberry Pi Model B (versions 2 and 3 tested; version 4 is expected to work as well). It provides a rolling graph of network utilization on the display. The project requires a router or switch capable of SNMP (Simple Network Management Protocol). I am currently using a Netgear GS108E switch and monitoring the port that connects to my router to track internet traffic. Testing with pfSense is planned, and I am open to assisting with other device setups.
+**pi-monitor** is a lightweight network monitor that utilizes the 8x8 LED display on a Raspberry Pi Sense HAT to visualize network activity. The application is designed for Raspberry Pi Model B (versions 2 and 3 tested; version 4 is expected to work as well). It provides a rolling graph of network utilization on the display. The project requires a router or switch capable of SNMP (Simple Network Management Protocol). I am currently using a Netgear GS108E switch and monitoring the port that connects to my router to track internet traffic. Testing with pfSense is planned, and I am open to assisting with other device setups.
 
 ### About the application
 This application is written in Python and requires the easysnmp and SenseHat modules.
@@ -21,10 +21,11 @@ You will need to install Python and required modules
 ``` $ python monitor.py ```
 
 
-Known issues
-v1 of the SenseHat generates an error: WARNING:root:Failed to initialise TCS34725 colour sensor. (sensor not present)
+### Known issues
 
-You can ignore this error as it doesn't affect the LED grid
+- v1 of the SenseHat generates an error:  <br />
+  ``WARNING:root:Failed to initialise TCS34725 colour sensor. (sensor not present)`` <br />
+  You can ignore this error as it doesn't affect the LED grid
 
-Some TPLink devices support SNMP, but give invalid data.
+- Some TPLink devices support SNMP, but give invalid data.
 
