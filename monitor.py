@@ -45,7 +45,7 @@ def signal_handler(sig, frame):
 
 def main():
     config = configparser.ConfigParser()
-    config.read('config.ini')
+    config.read('config.txt')
 
     # Initialize important variables
     min_utilization = int(config['Main']['min_utilization'])
